@@ -17,10 +17,12 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
 
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ['lib']
+  spec.bindir                = 'exe'
+  spec.executables           = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths         = ['lib']
   spec.required_ruby_version = '~> 2.5'
+  spec.signing_key           = '/home/taq/.gemcert/gem-private_key.pem'
+  spec.cert_chain            = ['gem-public_cert.pem']
 
   spec.add_development_dependency 'bundler',  '~> 1.17'
   spec.add_development_dependency 'minitest', '~> 5.0'
